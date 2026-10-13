@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黑影牛奶個人簡介 | Shadow Milk Cookie</title>
+    <meta name="description" content="黑影牛奶餅乾 (Shadow Milk Cookie) 個人簡介資料頁面 - 欺瞞之野獸、掌控謊言與木偶劇的魔術師。">
+    <link rel="icon" href="images/Profile.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Ambient Canvas -->
+    <canvas id="ambient-canvas"></canvas>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="container nav-content">
+            <a href="#" class="logo-group">
+                <div class="logo-avatar-wrap">
+                    <img src="images/Profile.ico" alt="黑影牛奶徽章" class="logo-icon">
+                </div>
+                <div class="logo-text-group">
+                    <span class="logo-title">SHADOW MILK</span>
+                    <span class="logo-sub">謊言之獸 · 個人簡介</span>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="#hero" class="nav-link">個人資料</a>
+                <a href="#abilities" class="nav-link">核心特性</a>
+                <a href="#gallery" class="nav-link">精選畫廊</a>
+                <button id="sound-toggle-btn" class="audio-toggle-btn" aria-label="切換音效">
+                    <span>🔔</span> <span>音效: 開啟</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Profile Section -->
+        <section id="hero" class="hero">
+            <div class="container hero-grid">
+                <!-- Left Column: Biography & Information -->
+                <div class="hero-info">
+                    <div class="hero-badge-wrap">
+                        <span class="badge-tag">
+                            <span class="badge-dot"></span>
+                            Cookie Run: Kingdom · 謊言之獸
+                        </span>
+                    </div>
+
+                    <h1 class="hero-title">黑影牛奶餅乾</h1>
+                    <p class="hero-subtitle">Shadow Milk Cookie · 掌控謊言與木偶戲的神秘魔術師</p>
+
+                    <!-- Interactive Quote Box -->
+                    <div class="quote-card">
+                        <div class="quote-header">
+                            <span class="quote-label">🎭 角色語錄</span>
+                        </div>
+                        <div class="quote-text" id="quote-text">
+                            「全部都是謊言喔~ 呵呵呵……」
+                        </div>
+                        <div class="quote-actions">
+                            <button id="refresh-quote-btn" class="quote-btn">
+                                <span>↻</span> 換一句台詞
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Basic Profile Info Cards -->
+                    <div class="info-list">
+                        <div class="info-item">
+                            <div class="info-label">👤 姓名</div>
+                            <div class="info-value highlight">黑影牛奶 (Shadow Milk)</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">🏷️ 代稱</div>
+                            <div class="info-value">他 / 它 (He / It)</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">🍪 種族</div>
+                            <div class="info-value">餅乾 · 原初野獸餅乾</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">🎪 愛好</div>
+                            <div class="info-value highlight">謊言 / 木偶戲</div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="hero-cta">
+                        <a href="#gallery" class="btn btn-primary">
+                            <span>🎨</span> 瀏覽畫廊劇照
+                        </a>
+                        <a href="https://i.pinimg.com/736x/d2/29/c1/d229c10c982fc9d95416af1279016efd.jpg"
+                            target="_blank" rel="noopener noreferrer" class="btn btn-pinterest">
+                            <span>📌</span> 前往「好多影奶」圖庫
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Character Showcase -->
+                <div class="showcase-wrapper">
+                    <div class="showcase-card">
+                        <div class="showcase-header">
+                            <span class="showcase-title">✨ 角色特寫檢視</span>
+                            <span class="zoom-hint">🔍 點擊圖片放大</span>
+                        </div>
+
+                        <div class="image-container" id="image-viewer-container" title="點擊檢視高解析大圖">
+                            <img id="main-character-img" src="./images/default.png" alt="黑影牛奶"
+                                class="main-character-img">
+                        </div>
+
+                        <!-- Image Switcher Controls -->
+                        <div class="view-controls">
+                            <button id="tab-portrait" class="tab-btn active">
+                                <span>🎭</span> 經典立繪
+                            </button>
+                            <button id="tab-cg" class="tab-btn">
+                                <span>🎬</span> 全景劇院 CG
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Abilities / Characteristic Section -->
+        <section id="abilities" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">THEATRICAL TRAITS</span>
+                    <h2 class="section-title">欺瞞之戲 · 核心特質</h2>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon-wrap">🎭</div>
+                        <h3 class="feature-title">欺瞞劇目</h3>
+                        <p class="feature-desc">以虛實交錯的戲劇操縱舞台與看客，將真相隱匿於層層帷幕之後，玩弄觀者的感官與思維。</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrap">🪢</div>
+                        <h3 class="feature-title">傀儡絲線</h3>
+                        <p class="feature-desc">無形的幽藍絲線牽繫著每一尊木偶，宛如掌控命運的導演，隨心所欲地編排一場場混亂的演出。</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrap">🥛</div>
+                        <h3 class="feature-title">甜美幻語</h3>
+                        <p class="feature-desc">「真實是苦澀的，只有謊言如牛奶般香甜。」以悅耳迷人的話語，引導純真之人步入設計好的陷阱。</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrap">🌑</div>
+                        <h3 class="feature-title">原初野獸之影</h3>
+                        <p class="feature-desc">封印於幽暗深淵之中的原初五大野獸之一，擁有令人顫慄的純黑幽光與超越常規的強大魔力。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">VISUAL ARCHIVE</span>
+                    <h2 class="section-title">影像與畫廊收藏</h2>
+                </div>
+
+                <div class="gallery-grid">
+                    <!-- Gallery Card 1: Default Portrait -->
+                    <div class="gallery-card open-lightbox" data-img="./images/default.png">
+                        <div class="gallery-thumb-wrap">
+                            <img src="./images/default.png" alt="黑影牛奶經典立繪" class="gallery-thumb">
+                            <span class="gallery-badge">Character Art</span>
+                        </div>
+                        <div class="gallery-info">
+                            <div class="gallery-card-title">
+                                <span>經典立繪 Portrait</span>
+                                <span>↗</span>
+                            </div>
+                            <p class="gallery-card-desc">黑影牛奶餅乾的標誌性角色形象，展現幽藍小丑帽與戲劇化笑容。</p>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Card 2: 40.png CG -->
+                    <div class="gallery-card open-lightbox" data-img="./images/40.png">
+                        <div class="gallery-thumb-wrap">
+                            <img src="./images/40.png" alt="劇院全景 CG" class="gallery-thumb">
+                            <span class="gallery-badge">4K Ultra HD</span>
+                        </div>
+                        <div class="gallery-info">
+                            <div class="gallery-card-title">
+                                <span>劇院全景 Theatrical CG</span>
+                                <span>↗</span>
+                            </div>
+                            <p class="gallery-card-desc">4800×2880 超高清震撼全景插畫，華麗木偶劇院的深淵舞台盛宴。</p>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Card 3: External Link 好多影奶 -->
+                    <a href="https://i.pinimg.com/736x/d2/29/c1/d229c10c982fc9d95416af1279016efd.jpg" target="_blank"
+                        rel="noopener noreferrer" class="gallery-card">
+                        <div class="gallery-thumb-wrap">
+                            <img src="https://i.pinimg.com/736x/d2/29/c1/d229c10c982fc9d95416af1279016efd.jpg"
+                                alt="好多影奶外部圖庫" class="gallery-thumb" loading="lazy">
+                            <span class="gallery-badge"
+                                style="color: #f43f5e; border-color: rgba(244, 63, 94, 0.4);">Pinterest 外部精選</span>
+                        </div>
+                        <div class="gallery-info">
+                            <div class="gallery-card-title">
+                                <span>好多影奶 精選圖庫</span>
+                                <span>🔗</span>
+                            </div>
+                            <p class="gallery-card-desc">點擊開啟外部高畫質收藏，欣賞更多豐富的黑影牛奶餅乾藝術創作！</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal for High-Res Zoom -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="圖片放大預覽">
+        <button id="lightbox-close" class="lightbox-close" aria-label="關閉預覽">&times;</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="放大預覽" class="lightbox-img">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-quote">「真實是苦澀的，只有謊言如牛奶般香甜。」</p>
+            <p>© 黑影牛奶個人檔案 · Cookie Run: Kingdom Fan Page</p>
+            <p class="footer-sub">All character rights belong to Devsisters Corporation.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
